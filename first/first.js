@@ -7,32 +7,37 @@ const formatInput = (seq) => {
 }
 
 const partOne = (seq) => {
-  seq = formatInput(seq)
+  seq = formatInput(seq);
   let sum = 0;
+  
   seq.forEach((num, idx) => {
     if (num === seq[idx+1]) {
-      sum += Number(num)
+      sum += Number(num);
     } else if ((idx === (seq.length-1)) && (num === seq[0])) {
-      sum += Number(num)
+      sum += Number(num);
     }
   })
-  return sum;
+
+  return sum
 }
 
 const partTwo = (seq) => {
-  seq = formatInput(seq)
+  seq = formatInput(seq);
+  
   const circularIdx = seq.length / 2;
   let sum = 0;
+ 
   seq.forEach((num, idx) => {
     if (idx + circularIdx > seq.length-1) {
-      let checkIdx = (seq.length + idx) % circularIdx
-      if (num === seq[checkIdx]) sum += Number(num)
+      let checkIdx = (seq.length + idx) % circularIdx;
+      if (num === seq[checkIdx]) sum += Number(num);
     } else if (num === seq[idx+circularIdx]) {
-      sum += Number(num)
+      sum += Number(num);
     } 
   })
+
   return sum;
 }
 
-console.log(`Problem One answer: ${partOne(sequence)}`);
-console.log(`Problem Two answer: ${partTwo(sequence)}`);
+console.log(`Problem One answer: ${partOne(sequence)}`)
+console.log(`Problem Two answer: ${partTwo(sequence)}`)
