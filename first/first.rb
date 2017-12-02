@@ -1,0 +1,3 @@
+def captcha(seq)
+  
+end
